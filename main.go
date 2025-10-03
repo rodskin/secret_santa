@@ -31,10 +31,11 @@ func shuffle(slice []Participant) {
 
 // Vérifie si un participant peut tirer une autre personne en fonction des restrictions
 func canDraw(participant Participant, drawn Participant) bool {
-	if slices.Contains(drawn.CannotDraw, participant.Name) {
-		return false
-	}
-	return true
+    // Vérifie si le participant ne peut pas tirer la personne "drawn"
+    if slices.Contains(participant.CannotDraw, drawn.Name) {
+        return false
+    }
+    return true
 }
 
 // Vérifie si un tirage est valide
